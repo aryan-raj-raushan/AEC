@@ -1,0 +1,16 @@
+.br-lf-rgt::after {
+  content: "";
+  width: 1px;
+  height: 15px;
+  background: #565959;
+  position: absolute;
+  right: -13px;
+}
+/* .br-lf-rgt::before {
+  content: "";
+  width: 1px;
+  height: 15px;
+  background: #565959;
+  position: absolute;
+  left: -13px;
+} */

@@ -1,0 +1,70 @@
+name: k8s-portal-ui-dev-pull-request
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  id-token: write
+  issues: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18' # Corrected node version to a valid one
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Unit test
+        run: npm run test
+    
+  sonar-gateway:
+    needs: [build]
+    name: sonar-gateway
+    runs-on: ubuntu-latest
+    permissions: read-all
+       
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 
+      - name: Install dependencies
+        run: yarn
+      - name: Test and coverage
+        run: yarn jest --coverage
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      # - name: SonarQube Quality Gate
+      #   uses: sonarsource/sonarqube-quality-gate-action@master
+      #   timeout-minutes: 5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
+  # decorate-pull-request:
+  #   needs: [sonar-gateway]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Decorate pull request with SonarQube status
+  #       uses: sonarsource/sonarqube-action-detect@master
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  #         sonar_host_url: ${{ secrets.SONAR_HOST_URL }}
+  #         wait_for_job_id: ${{ needs.sonar-gateway.sonarqube.outputs.job_id }}

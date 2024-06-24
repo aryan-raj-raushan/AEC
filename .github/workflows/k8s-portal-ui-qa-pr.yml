@@ -1,0 +1,76 @@
+name: k8s-portal-ui-qa-pull-request
+
+on:
+  pull_request:
+    branches:
+      - qa
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  id-token: write
+  issues: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18' # Corrected node version to a valid one
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Unit test
+        run: npm run test
+    
+  # sonar-gateway:
+  #   needs: [build]
+  #   name: sonar-gateway
+  #   runs-on: ubuntu-latest
+  #   permissions: read-all
+       
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0 
+  #     - name: Install dependencies
+  #       run: yarn
+  #     - name: Test and coverage
+  #       run: yarn jest --coverage
+  #     - name: SonarQube Scan
+  #       uses: sonarsource/sonarqube-scan-action@master
+  #       env:
+  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  #         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+  #     - name: SonarQube Quality Gate
+  #       uses: sonarsource/sonarqube-quality-gate-action@master
+  #       timeout-minutes: 5
+  #       env:
+  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  
+  # fail-on-quality-gate:
+  #   needs: [sonar-gateway]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # - name: fail-on-quality-gate
+  #     #   if: ${{ needs.sonar-gateway['sonar-gateway'].outcome == 'success' && needs.sonar-gateway.sonar_quality_gate.outputs.status != 'passed' }}
+  #     #   run: exit 1
+  #       - name: Check quality gate status
+  #         if: ${{ needs.sonar-gateway['sonar-gateway'].outcome == 'success' }}
+  #         run: |
+  #           COVERAGE=$(curl -s "${{ secrets.SONAR_HOST_URL }}/api/measures/component?componentKey=${{ github.repository }}&metricKeys=coverage" | jq -r '.component.measures[0].value')
+  #           DUPLICATION=$(curl -s "${{ secrets.SONAR_HOST_URL }}/api/measures/component?componentKey=${{ github.repository }}&metricKeys=duplicated_lines_density" | jq -r '.component.measures[0].value')
+  #           if (( $(echo "$COVERAGE < 70" | bc -l) )) || (( $(echo "$DUPLICATION > 10" | bc -l) )); then
+  #             echo "Coverage is below 70% or duplication is above 10%."
+  #             exit 1
+  #           fi

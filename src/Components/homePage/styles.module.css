@@ -1,0 +1,21 @@
+  
+  .slide.active {
+    z-index: 1;
+  }
+  
+  .slide:not(.active) {
+    opacity: 0.7; /* Adjust opacity for inactive slides */
+  }
+  
+  .next {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

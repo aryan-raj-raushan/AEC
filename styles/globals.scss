@@ -1,0 +1,372 @@
+@import "ckeditor-tailwind-reset/ckeditor-tailwind-reset";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: "Work Sans", sans-serif;
+}
+
+.imgGlobe {
+	color: transparent;
+	width: 40px;
+	display: inline-block;
+	position: relative;
+	top: -3px;
+}
+
+.resourcesScroll {
+	height: 35rem;
+	scrollbar-width: thin;
+	border-radius: 3px;
+	background: #fff;
+}
+
+.img-cr {
+	margin-left: -37px;
+	margin-bottom: 25px;
+	margin-top: 10px;
+}
+
+.img-cr2 {
+	margin-top: -60px;
+	margin-left: -36px;
+}
+
+.img-cr3 {
+	margin-top: -34px;
+	margin-left: -32px;
+}
+
+.crrcil {
+	background: #2f76aa;
+	padding: 56px;
+	border-radius: 311px;
+	height: 357px;
+	width: 357px;
+	margin-left: 43px;
+}
+
+.text1 {
+	position: relative;
+	bottom: 70px;
+	color: #000;
+	right: 74px;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.text2 {
+	margin-left: -92px;
+	position: relative;
+	top: -46px;
+	font-weight: 500;
+	color: #000;
+	font-size: 14px;
+}
+
+.text3 {
+	color: #000;
+	position: relative;
+	top: -42px;
+	font-size: 14px;
+	font-weight: 500;
+	margin-left: -45px;
+}
+
+.whiteStar {
+	margin-left: 134px;
+	position: relative;
+	bottom: -23px;
+}
+
+.whiteStar1 {
+	margin-left: 186px;
+	position: relative;
+	top: -47px;
+}
+
+.whiteStar2 {
+	margin-left: 191px;
+	position: relative;
+	bottom: 22px;
+}
+
+.resourcesScroll {
+	height: 35rem;
+	padding: 10px;
+}
+
+.globePadding {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.mt-g {
+	margin-top: 55px;
+}
+
+.home-cl {
+	width: 510px;
+	padding-top: 155px;
+	padding-left: 45px;
+	background-image: linear-gradient(#3b86bcd4, #d35f0e87);
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+.home-heading {
+	font-family: PT Serif;
+	font-size: 50px;
+	font-weight: 700;
+	line-height: 70px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.dc {
+	position: relative;
+	bottom: 108px;
+}
+
+.forbadeero {
+	color: transparent;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	right: -55px;
+	top: 77px;
+}
+
+.access {
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 100;
+	position: relative;
+	left: 185px;
+	top: -53px;
+}
+
+.accessKey {
+	position: relative;
+	left: 127px;
+	top: -7px;
+}
+
+.scrollToTopButton {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	display: none;
+}
+
+.campusSvg {
+	padding-top: 695px;
+}
+
+.studySliderImageArrow {
+	border-radius: 0.5rem;
+	position: relative;
+	left: 54px;
+	background: #ffffffab;
+	border: 1px solid #ffffffab !important;
+}
+
+.studySliderImage {
+	margin-left: -6px;
+	margin: -4px;
+	padding: 7px;
+}
+
+.pdCountry {
+	padding-bottom: 9.15px;
+}
+
+.table-responsive {
+	width: 100% !important;
+}
+
+.table {
+	width: 100% !important;
+}
+
+table {
+	table-layout: fixed;
+	width: 100% !important;
+	overflow-x: auto;
+	border-radius: 0px 5px 0px 0px !important;
+	border: 1px solid #020014;
+}
+
+tbody tr th {
+	color: #020014 !important;
+	font-size: 18px !important;
+	font-weight: 600 !important;
+	background-color: rgba(66, 139, 193, 0.2) !important;
+	background: rgba(66, 139, 193, 0.1) !important;
+}
+
+.ckeditorData p img {
+	width: 100%;
+}
+
+.navbar-landingPage-responsive {
+	padding-top: 140px;
+}
+
+.navbar-PageInfo-responsive {
+	padding-top: 89px;
+}
+
+.blogs-top-searches {
+	padding-top: 114px;
+}
+
+.news-padding {
+	margin-bottom: -100px;
+}
+
+.news-landingPage-responsive {
+	padding-top: 80px;
+}
+
+.nav-applied-filter {
+	margin-left: 188px;
+}
+
+.nav-clear-all-filter {
+	margin-right: 172px;
+}
+
+.image img {
+	width: 100% !important;
+}
+
+/* For webkit browsers */
+::-webkit-scrollbar {
+	width: 6px; /* Set the width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent; /* Set the background color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #000; /* Set the color of the scrollbar handle */
+	border-radius: 3px; /* Set the border radius of the scrollbar handle */
+}
+
+ 
+.hide-scrollbar::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+	background-color: transparent;
+}
+
+@keyframes slide-left-to-right {
+	from {
+		transform: translateX(-100%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+.animate-slide-left-to-right {
+	animation: slide-left-to-right 0.5s ease-in-out forwards;
+}
+
+.rotate-180 {
+	transform: rotate(180deg);
+  }
+  
+
+.sticky-nav-wrapper {
+	position: sticky !important;
+	top: 89px !important; 
+	z-index: 10 !important;
+  }
+  
+
+  .fixed-main-content {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: scroll; /* Enable vertical scrolling */
+	padding-top: 0; /* Adjust padding as needed */
+	padding-bottom: 0; /* Adjust padding as needed */
+  }
+
+  .loader{
+	.spinner {
+		width: 44px;
+		height: 44px;
+		animation: spinner-y0fdc1 2s infinite ease;
+		transform-style: preserve-3d;
+	   }
+	   
+	   .spinner > div {
+		background-color: rgba(0,77,255,0.2);
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		border: 2px solid #004dff;
+	   }
+	   
+	   .spinner div:nth-of-type(1) {
+		transform: translateZ(-22px) rotateY(180deg);
+	   }
+	   
+	   .spinner div:nth-of-type(2) {
+		transform: rotateY(-270deg) translateX(50%);
+		transform-origin: top right;
+	   }
+	   
+	   .spinner div:nth-of-type(3) {
+		transform: rotateY(270deg) translateX(-50%);
+		transform-origin: center left;
+	   }
+	   
+	   .spinner div:nth-of-type(4) {
+		transform: rotateX(90deg) translateY(-50%);
+		transform-origin: top center;
+	   }
+	   
+	   .spinner div:nth-of-type(5) {
+		transform: rotateX(-90deg) translateY(50%);
+		transform-origin: bottom center;
+	   }
+	   
+	   .spinner div:nth-of-type(6) {
+		transform: translateZ(22px);
+	   }
+	   
+	   @keyframes spinner-y0fdc1 {
+		0% {
+		 transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+		}
+	   
+		50% {
+		 transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+		}
+	   
+		100% {
+		 transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+		}
+	   }
+  }
+  
